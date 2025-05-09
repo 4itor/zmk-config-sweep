@@ -2,10 +2,12 @@
 // SPDX-License-Identifier: MIT
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 // Home row mods macro
+
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
 #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
 
@@ -277,10 +279,10 @@
         Connectivity {
             display-name = "CON";
             bindings = <
-&bootloader  &none  &none  &none   &none    &none &none         &none         &none         &bootloader
-&none        &none  &none  &none   &none    &none &none         &none         &none         &none
-&kp N1       &none  &none  &none   &none    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-                           &trans  &trans   &none         &none
+&bootloader  &none  &none  &none   &out OUT_TOG    &bt BT_CLR    &none         &none         &none         &bootloader
+&none        &none  &none  &none   &none           &none         &none         &none         &none         &none
+&kp N1       &none  &none  &none   &none           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+                           &trans  &trans          &none         &none
             >;
         };
     };
