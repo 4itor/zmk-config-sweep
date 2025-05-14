@@ -105,13 +105,6 @@
             require-prior-idle-ms = <30>;
         };
 
-        combo_esc2 {
-            bindings = <&kp ESC>;
-            key-positions = <2 3>;
-            timeout-ms = <30>;
-            require-prior-idle-ms = <30>;
-        };
-
         combo_meet_mute {
             bindings = <&kp LC(D)>;
             key-positions = <26 27>;
