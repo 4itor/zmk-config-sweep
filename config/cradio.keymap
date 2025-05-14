@@ -234,10 +234,10 @@
         Symbols {
             display-name = "Sym";
             bindings = <
-  &kp EXCL    &kp AT     &kp HASH   &kp EXCL   &kp HASH    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR
-  &kp RA(N1)  &kp TILDE  &kp MINUS  &kp PLUS   &kp PIPE    &kp GRAVE  &kp DQT    &kp SQT    &kp LBRC  &kp RBRC
-  &none       &m_updir   &kp UNDER  &kp EQUAL  &kp BSLH    &none      &m_assign  &m_add     &kp LBKT  &kp RBKT
-                                    &trans     &trans      &trans     &trans
+  &kp EXCL    &kp AT     &kp LS(N3)  &kp LS(NUMBER_4)  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR
+  &kp RA(N1)  &kp TILDE  &kp MINUS   &kp PLUS          &kp PIPE     &kp GRAVE  &kp DQT    &kp SQT    &kp LBRC  &kp RBRC
+  &none       &m_updir   &kp UNDER   &kp EQUAL         &kp BSLH     &none      &m_assign  &m_add     &kp LBKT  &kp RBKT
+                                     &trans            &trans       &trans     &trans
             >;
         };
 
