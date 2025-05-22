@@ -90,48 +90,55 @@
         combo_meet_mute {
             bindings = <&kp LC(D)>;
             key-positions = <26 27>;
+            timeout-ms = <30>;
         };
 
         combo_meet_cam {
             bindings = <&kp LC(E)>;
             key-positions = <27 28>;
+            timeout-ms = <30>;
         };
 
         combo_caps_word {
             bindings = <&caps_word>;
             key-positions = <13 16 13>;
+            timeout-ms = <30>;
         };
 
         combo_cut_mac {
             bindings = <&kp LG(X)>;
             key-positions = <20 21>;
             layers = <0>;
+            timeout-ms = <30>;
         };
 
         combo_copy_mac {
             bindings = <&kp LG(C)>;
             key-positions = <21 22>;
             layers = <0>;
+            timeout-ms = <30>;
         };
 
         combo_paste_mac {
             bindings = <&kp LG(V)>;
             key-positions = <22 23>;
             layers = <0>;
+            timeout-ms = <30>;
         };
 
         combo_select_mac {
             bindings = <&kp LG(A)>;
             key-positions = <23 24>;
             layers = <0>;
+            timeout-ms = <30>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        Querty {
-            display-name = "MacOS";
+        Qwerty {
+            display-name = "Qwerty";
             bindings = <
 &kp Q       &kp W           &kp E        &kp R         &kp T         &kp Y        &kp U         &kp I        &kp O       &kp P
 &ht LGUI A  &ht LEFT_ALT S  &ht LCTRL D  &ht LSHIFT F  &kp G         &kp H        &ht RSHIFT J  &ht RCTRL K  &ht LALT L  &ht LGUI SEMI
@@ -139,11 +146,10 @@
                                          &lt 1 TAB     &lt 4 BSPC    &lt 3 SPACE  &lt 2 RETURN
             >;
 
-            label = "Querty";
         };
 
         Numpad {
-            display-name = "Num";
+            display-name = "Numpad";
             bindings = <
 &kp ESC   &none     &none      &none      &kp LPAR        &kp RPAR     &kp N7       &kp N8  &kp N9  &kp N0
 &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &kp KP_PLUS     &kp DOT      &kp N4       &kp N5  &kp N6  &kp SEMI
@@ -151,11 +157,10 @@
                                &trans     &lt 4 BSPC      &lt 3 SPACE  &lt 2 ENTER
             >;
 
-            label = "Numpad";
         };
 
         Symbols {
-            display-name = "Sym";
+            display-name = "Symbol";
             bindings = <
 &kp EXCL    &kp AT     &kp LS(N3)  &kp LS(NUMBER_4)  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR
 &kp RA(N1)  &kp TILDE  &kp MINUS   &kp PLUS          &kp PIPE     &kp GRAVE  &kp DQT    &kp SQT    &kp LBRC  &kp RBRC
@@ -175,15 +180,13 @@
         };
 
         FKeys {
-            display-name = "Func";
+            display-name = "FKeys";
             bindings = <
 &kp Q      &kp W      &kp LS(TAB)  &swap      &tabswap     &none   &kp F7  &kp F8  &kp F9  &kp F10
 &kp LGUI   &kp LALT   &kp LCTRL    &kp LSHFT  &none        &none   &kp F4  &kp F5  &kp F6  &kp F11
 &kp LG(Z)  &kp LG(X)  &kp LG(C)    &kp LG(V)  &kp LG(A)    &none   &kp F1  &kp F2  &kp F3  &kp F12
                                    &lt 1 TAB  &trans       &trans  &trans
             >;
-
-            label = "FKeys";
         };
 
         Adjustments {
