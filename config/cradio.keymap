@@ -139,6 +139,12 @@
             layers = <0>;
             timeout-ms = <30>;
         };
+
+        combo_central_bootload {
+            bindings = <&bootloader>;
+            key-positions = <20 21>;
+            layers = <6>;
+        };
     };
 
     keymap {
