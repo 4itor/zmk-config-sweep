@@ -145,6 +145,12 @@
             key-positions = <20 21>;
             layers = <6>;
         };
+
+        combo_dongle_reset {
+            bindings = <&sys_reset>;
+            key-positions = <29 28>;
+            layers = <6>;
+        };
     };
 
     keymap {
