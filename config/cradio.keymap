@@ -98,7 +98,14 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_esc {
+        combo_esc_left {
+            bindings = <&kp ESC>;
+            key-positions = <2 3>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <30>;
+        };
+
+        combo_esc_right {
             bindings = <&kp ESC>;
             key-positions = <6 7>;
             timeout-ms = <30>;
@@ -119,7 +126,7 @@
 
         combo_caps_word {
             bindings = <&caps_word>;
-            key-positions = <13 16 13>;
+            key-positions = <13 16>;
         };
 
         combo_cut_win {
@@ -258,7 +265,7 @@
             display-name = "Func";
             bindings = <
   &kp Q      &kp W      &kp LS(TAB)  &swap      &tabswap     &none   &kp F7  &kp F8  &kp F9  &kp F10
-  &kp LGUI   &kp LALT   &kp LCTRL    &kp LSHFT  &none        &none   &kp F4  &kp F5  &kp F6  &kp F11
+  &kp LGUI   &kp LALT   &kp LCTRL    &ht LSHFT LG(LS(SPACE))  &none        &none   &kp F4  &kp F5  &kp F6  &kp F11
   &kp LG(Z)  &kp LG(X)  &kp LG(C)    &kp LG(V)  &kp LG(A)    &none   &kp F1  &kp F2  &kp F3  &kp F12
                                      &lt 3 TAB  &trans       &trans  &trans
             >;
