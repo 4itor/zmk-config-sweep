@@ -1,11 +1,7 @@
 manifest:
   remotes:
-    # zmk official
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # Prospector
-    - name: carrefinho
-      url-base: https://github.com/carrefinho
     # ZMK tri-state
     - name: dhruvinsh
       url-base: https://github.com/dhruvinsh
@@ -14,9 +10,6 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: prospector-zmk-module
-      remote: carrefinho
-      revision: main
     - name: zmk-tri-state
       remote: dhruvinsh
       revision: main
