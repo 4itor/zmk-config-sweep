@@ -43,14 +43,24 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        Adjustment {
-            if-layers = <1 2>;
-            then-layer = <5>;
+        Adjustment_Layer {
+            if-layers = <2 4>;
+            then-layer = <8>;
         };
 
-        Connection {
-            if-layers = <1 4>;
-            then-layer = <6>;
+        Adjustment_Mac {
+            if-layers = <3 4>;
+            then-layer = <9>;
+        };
+
+        Connection_Layer {
+            if-layers = <2 6>;
+            then-layer = <10>;
+        };
+
+        Connection_Mac {
+            if-layers = <3 7>;
+            then-layer = <10>;
         };
     };
 
@@ -75,19 +85,20 @@
             bindings = <&kp PLUS &kp EQUAL>;
             label = "M_ADD";
         };
+
+        m_license: m_license {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(H) &kp L>, <&macro_wait_time 500>, <&kp LA(C)>;
+
+            label = "M_LICENSE";
+        };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        combo_esc_left {
-            bindings = <&kp ESC>;
-            key-positions = <2 3>;
-            timeout-ms = <30>;
-            require-prior-idle-ms = <30>;
-        };
-
-        combo_esc_right {
+        combo_esc {
             bindings = <&kp ESC>;
             key-positions = <6 7>;
             timeout-ms = <30>;
@@ -97,87 +108,124 @@
         combo_meet_mute {
             bindings = <&kp LC(D)>;
             key-positions = <26 27>;
-            timeout-ms = <30>;
+            layers = <1>;
         };
 
         combo_meet_cam {
             bindings = <&kp LC(E)>;
             key-positions = <27 28>;
-            timeout-ms = <30>;
+            layers = <1>;
         };
 
         combo_caps_word {
             bindings = <&caps_word>;
-            key-positions = <13 16>;
-            timeout-ms = <30>;
+            key-positions = <13 16 13>;
+        };
+
+        combo_cut_win {
+            bindings = <&kp LC(X)>;
+            key-positions = <20 21>;
+            layers = <1>;
+        };
+
+        combo_copy_win {
+            bindings = <&kp LC(C)>;
+            key-positions = <21 22>;
+            layers = <1>;
+        };
+
+        combo_paste_win {
+            bindings = <&kp LC(V)>;
+            key-positions = <22 23>;
+            layers = <1>;
+        };
+
+        combo_select_all_win {
+            bindings = <&kp LC(A)>;
+            key-positions = <24 23>;
+            layers = <1>;
         };
 
         combo_cut_mac {
             bindings = <&kp LG(X)>;
             key-positions = <20 21>;
             layers = <0>;
-            timeout-ms = <30>;
         };
 
         combo_copy_mac {
             bindings = <&kp LG(C)>;
             key-positions = <21 22>;
             layers = <0>;
-            timeout-ms = <30>;
         };
 
         combo_paste_mac {
             bindings = <&kp LG(V)>;
             key-positions = <22 23>;
             layers = <0>;
-            timeout-ms = <30>;
         };
 
         combo_select_mac {
             bindings = <&kp LG(A)>;
             key-positions = <23 24>;
             layers = <0>;
-            timeout-ms = <30>;
         };
 
-        combo_central_bootload {
-            bindings = <&bootloader>;
-            key-positions = <20 21>;
-            layers = <6>;
+        combo_win_switch {
+            bindings = <&to 1>;
+            key-positions = <20 0>;
         };
 
-        combo_dongle_reset {
-            bindings = <&sys_reset>;
-            key-positions = <29 28>;
-            layers = <6>;
+        combo_mac_switch {
+            bindings = <&to 0>;
+            key-positions = <29 9>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        Qwerty {
-            display-name = "Qwerty";
+        Mac_Base {
+            display-name = "MacOS";
             bindings = <
   &kp Q       &kp W           &kp E        &kp R         &kp T         &kp Y        &kp U         &kp I        &kp O       &kp P
   &ht LGUI A  &ht LEFT_ALT S  &ht LCTRL D  &ht LSHIFT F  &kp G         &kp H        &ht RSHIFT J  &ht RCTRL K  &ht LALT L  &ht LGUI SEMI
   &kp Z       &kp X           &kp C        &kp V         &kp B         &kp N        &kp M         &kp COMMA    &kp DOT     &kp SLASH
-                                           &lt 1 TAB     &lt 4 BSPC    &lt 3 SPACE  &lt 2 RETURN
+                                           &lt 3 TAB     &lt 7 BSPC    &lt 5 SPACE  &lt 4 RETURN
+            >;
+        };
+
+        Base {
+            display-name = "Windows";
+            bindings = <
+  &kp Q       &kp W           &kp E        &kp R         &kp T         &kp Y        &kp U         &kp I        &kp O       &kp P
+  &ht LGUI A  &ht LEFT_ALT S  &ht LCTRL D  &ht LSHIFT F  &kp G         &kp H        &ht RSHIFT J  &ht RCTRL K  &ht LALT L  &ht LGUI SEMI
+  &kp Z       &kp X           &kp C        &kp V         &kp B         &kp N        &kp M         &kp COMMA    &kp DOT     &kp SLASH
+                                           &lt 2 TAB     &lt 6 BSPC    &lt 5 SPACE  &lt 4 RETURN
             >;
         };
 
         Numpad {
-            display-name = "Numpad";
+            display-name = "Num";
+            bindings = <
+  &kp ESC   &none     &kp LC(LA(F1))  &kp LA(LS(F))  &kp LPAR        &kp RPAR     &kp N7       &kp N8  &kp N9  &kp N0
+  &kp LGUI  &kp LALT  &ht LGUI D      &kp LSHFT      &kp KP_PLUS     &kp DOT      &kp N4       &kp N5  &kp N6  &kp SEMI
+  &none     &none     &none           &none          &kp KP_MINUS    &kp COMMA    &kp N1       &kp N2  &kp N3  &kp FSLH
+                                      &trans         &lt 6 BSPC      &lt 5 SPACE  &lt 4 ENTER
+            >;
+        };
+
+        Mac_Numpad {
+            display-name = "Num";
             bindings = <
   &kp ESC   &none     &none      &none      &kp LPAR        &kp RPAR     &kp N7       &kp N8  &kp N9  &kp N0
   &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &kp KP_PLUS     &kp DOT      &kp N4       &kp N5  &kp N6  &kp SEMI
   &none     &none     &none      &none      &kp KP_MINUS    &kp COMMA    &kp N1       &kp N2  &kp N3  &kp FSLH
-                                 &trans     &lt 4 BSPC      &lt 3 SPACE  &lt 2 ENTER
+                                 &trans     &lt 7 BSPC      &lt 5 SPACE  &lt 4 ENTER
             >;
         };
 
         Symbols {
-            display-name = "Symbol";
+            display-name = "Sym";
             bindings = <
   &kp EXCL    &kp AT     &kp LS(N3)  &kp LS(NUMBER_4)  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR
   &kp RA(N1)  &kp TILDE  &kp MINUS   &kp PLUS          &kp PIPE     &kp GRAVE  &kp DQT    &kp SQT    &kp LBRC  &kp RBRC
@@ -197,16 +245,36 @@
         };
 
         FKeys {
-            display-name = "FKeys";
+            display-name = "Func";
             bindings = <
-  &kp Q      &kp W      &kp LS(TAB)  &swap                    &tabswap     &none   &kp F7  &kp F8  &kp F9  &kp F10
-  &kp LGUI   &kp LALT   &kp LCTRL    &ht LSHFT LG(LS(SPACE))  &none        &none   &kp F4  &kp F5  &kp F6  &kp F11
-  &kp LG(Z)  &kp LG(X)  &kp LG(C)    &kp LG(V)                &kp LG(A)    &none   &kp F1  &kp F2  &kp F3  &kp F12
-                                     &lt 1 TAB                &trans       &trans  &trans
+  &kp LG(Q)  &kp LG(W)  &kp LS(TAB)  &swap      &tabswap     &none   &kp F7  &kp F8  &kp F9  &kp F10
+  &kp LGUI   &kp LALT   &kp LCTRL    &kp LSHFT  &none        &none   &kp F4  &kp F5  &kp F6  &kp F11
+  &kp LC(Z)  &kp LC(X)  &kp LC(C)    &kp LC(V)  &kp LC(A)    &none   &kp F1  &kp F2  &kp F3  &kp F12
+                                     &lt 2 TAB  &trans       &trans  &trans
+            >;
+        };
+
+        Mac_FKeys {
+            display-name = "Func";
+            bindings = <
+  &kp Q      &kp W      &kp LS(TAB)  &swap      &tabswap     &none   &kp F7  &kp F8  &kp F9  &kp F10
+  &kp LGUI   &kp LALT   &kp LCTRL    &kp LSHFT  &none        &none   &kp F4  &kp F5  &kp F6  &kp F11
+  &kp LG(Z)  &kp LG(X)  &kp LG(C)    &kp LG(V)  &kp LG(A)    &none   &kp F1  &kp F2  &kp F3  &kp F12
+                                     &lt 3 TAB  &trans       &trans  &trans
             >;
         };
 
         Adjustments {
+            display-name = "Adjust";
+            bindings = <
+  &studio_unlock         &none                  &kp LC(MINUS)          &kp LC(EQUAL)          &kp LC(N0)               &kp C_PLAY  &kp C_PREV    &kp C_NEXT    &kp RG(N4)               &kp RG(N5)
+  &kp LG(LA(LC(LS(A))))  &kp LG(LA(LC(LS(S))))  &kp LS(LG(LC(LA(D))))  &kp LS(LA(LC(LG(F))))  &kp LS(LA(LC(LG(G))))    &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &m_license               &kp LG(LC(LA(LS(SEMI))))
+  &kp LS(LA(LC(LG(Z))))  &kp LS(LG(LC(LA(X))))  &kp LG(LA(LS(LC(C))))  &kp LS(LG(LA(LC(V))))  &kp LS(LA(LC(LG(B))))    &kp RG(N6)  &kp C_BRI_DN  &kp C_BRI_UP  &kp LC(LS(LA(LG(DOT))))  &kp LC(LA(DEL))
+                                                                       &trans                 &trans                   &trans      &trans
+            >;
+        };
+
+        Mac_Adjustments {
             display-name = "Adjust";
             bindings = <
   &studio_unlock  &none           &kp LG(MINUS)   &kp LG(EQUAL)  &kp LG(N0)    &kp C_PLAY  &kp C_PREV    &kp C_NEXT    &none          &none
