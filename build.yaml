@@ -21,7 +21,7 @@
 include:
   # Sweep Dongle with rgbled
   - board: seeeduino_xiao_ble
-    shield: forager_dongle rgbled_adapter
+    shield: cradio_dongle rgbled_adapter
     snippet: studio-rpc-usb-uart
     artifact-name: sweep_dongle_central
     cmake-args: -DCONFIG_RGBLED_WIDGET_BATTERY_SHOW_SELF=n -DCONFIG_RGBLED_WIDGET_BATTERY_SHOW_PERIPHERALS=n -DCONFIG_RGBLED_WIDGET_BATTERY_SHOW_ONLY_PERIPHERALS=y
