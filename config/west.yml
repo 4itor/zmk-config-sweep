@@ -1,10 +1,14 @@
 manifest:
   remotes:
+    # ZMK Official firmware
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     # ZMK tri-state
     - name: dhruvinsh
       url-base: https://github.com/dhruvinsh
+    # RGB Led
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -12,6 +16,9 @@ manifest:
       import: app/west.yml
     - name: zmk-tri-state
       remote: dhruvinsh
+      revision: main
+    - name: zmk-rgbled-widget
+      remote: caksoylar
       revision: main
   self:
     path: config
