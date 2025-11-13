@@ -21,7 +21,7 @@
 include:
   # Raytac Sweep Dongle (no rgbled)
   - board: raytac_mdbt50q_rx
-    shield: my_keyboard_dongle
+    shield: cradio_dongle
     snippet: studio-rpc-usb-uart
     artifact-name: sweep_raytac_central
   # Sweep Dongle with rgbled
