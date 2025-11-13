@@ -9,6 +9,9 @@ manifest:
     # RGB Led
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    # Raytac Dongle
+    - name: rschenk
+      url-base: https://github.com/rschenk
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -19,6 +22,9 @@ manifest:
       revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
+      revision: main
+    - name: zmk-component-raytac-dongle
+      remote: rschenk
       revision: main
   self:
     path: config
